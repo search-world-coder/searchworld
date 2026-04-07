@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Clock</title>
+        <style>
+            body{
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                background-color:darkslategrey;
+                color:whitesmoke;
+                text-align: center;
+            }
+            h1{
+                font-size:40pt;
+            }
+           /* .circularClock{
+                border-radius: 50%;
+                bottom:50px;
+                width: 200px;
+                height: 200px;
+                border: 2px solid black;
+                position: inherit;
+                margin:0 auto;
+                transform-origin: bottom;
+            }*/
+            .hand{
+                left:50%;
+                bottom:50%;
+                transform-origin: bottom;
+                position:absolute;
+              transform: rotate(0deg);
+            }
+            .hourHand{
+                width: 2px;
+                height: 50px;
+               background-color: yellow;
+            }
+            .minuteHand{
+                width: 2px;
+                height: 70px;
+               background-color: orange;
+            }
+            .secondHand{
+                width: 2px;
+                height: 90px;
+               background-color: red;
+            }
+            #displayBox{
+                float:center;
+                height:40px;
+                font-size:40px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Clock</h1>
+        <div id="clock" class="circularClock"></div>
+        <div class="hand hourHand" id="handHour"></div>
+        <div class="hand minuteHand" id="handMinute"></div>
+        <div class="hand secondHand" id="handSecond"></div>
+        <div id="displayBox"></div>
+        <script>
+            function workingClock(){
+                const seconds = new Date().getSeconds();
+                const minutes = new Date().getMinutes();
+                const hours = new Date().getHours();
+                const secondHand = document.getElementById("handSecond");
+                const minuteHand = document.getElementById("handMinute");   
+                const hourHand = document.getElementById("handHour");
+                const secondDegree = seconds * 6;
+                const minuteDegree = minutes * 6 + seconds * 0.1;
+                const hourDegree = hours * 30 + minutes * 0.5;
+                secondHand.style.transform = `rotate(${secondDegree}deg)`;
+                minuteHand.style.transform = `rotate(${minuteDegree}deg)`;
+                hourHand.style.transform = `rotate(${hourDegree}deg)`;
+                
+            }
+            // Call the function initially and then every second
+            workingClock();
+            setInterval(workingClock, 1000);
+            function digitalClock(){
+                const seconds = new Date().getSeconds();
+                const minutes = new Date().getMinutes();
+                const hours = new Date().getHours();
+                document.getElementById("displayBox").innerText = hours + ":" + minutes+ ":" + seconds;
+            }
+            digitalClock();
+            setInterval(digitalClock,1000);
+        </script>
+    </body>
+</html>

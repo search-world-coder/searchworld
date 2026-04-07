@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chat</title>
+        <style>
+            body{
+                background-color: azure;
+                color:darkslategrey;
+                font-family:Georgia, 'Times New Roman', Times, serif;
+            }
+            #border {
+                border: 2px solid black;
+            }
+            #container {
+                float:down;
+                float:left;
+                height:auto;
+                width:100%;
+                background-color:lightcyan;
+            }
+            input[type="button"] {
+                background-color: darkcyan;
+                color: white;
+                padding: 10px 20px;
+            }
+        </style>
+        <script>
+            function generateMessage() {
+                var messageSpace = document.createElement("div");
+                var message = document.getElementById("container");
+                messageSpace.innerHTML = document.getElementById("messageInput").value;
+                message.appendChild(messageSpace);
+                saveMessage();
+            }       
+            function generateMessage2() {
+                var messageSpace = document.createElement("div");
+                var message = document.getElementById("container");
+                messageSpace.innerHTML = document.getElementById("messageInput2").value;
+                message.appendChild(messageSpace);
+                saveMessage();
+            }  
+            function saveMessage(){
+                localStorage.saveMessageSpace = document.getElementById("container").innerHTML;
+            }
+            function loadMessage(){
+                document.getElementById("container").innerHTML = localStorage.saveMessageSpace;
+            }
+            function clearMessage(){
+                document.getElementById("container").innerHTML = "";
+                saveMessage();
+            }
+            </script>
+    </head>
+    <body>
+        <h1>Chat!</h1>
+        <h2>This is only one-person now, future updates will include multiple users</h2>
+        <div id="border"></div>
+        <input type="button" value="Generate message (1)" onclick="generateMessage()"/><br/>
+        <input type="text" id="messageInput" placeholder="Type your message here..."/><br/>
+        <p></p>
+        <input type="button" value="Generate message (2)" onclick="generateMessage2()"/><br/>
+        <input type="text" id="messageInput2" placeholder="Type your message here..."/><br/>
+        <p></p>
+        <input type="button" value="Clear messages" onclick="clearMessage()"/>
+        <p></p>
+        <div id="container"></div>
+        <script>
+            loadMessage();
+        </script>
+    </body>
+</html>

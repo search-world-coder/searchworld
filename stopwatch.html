@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stopwatch</title>
+        <style>
+            body{
+                background-color: black;
+                color: white;
+                margin:10px;
+                font-size:40px;
+            }
+            #stopwatch {
+                font-size:20px;
+            }
+            #stopwatchDisplay {
+                font-size:100px;
+                height:100px;
+                width:200px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Stopwatch</h1>
+        <div id="stopwatchDisplay"></div>
+        <p></p>
+        <button id="stopwatch" onclick="stopwatchStart();">Start Stopwatch</button>
+        <script>
+            count=0;
+            function stopwatchStart(){
+             count++;
+             document.getElementById("stopwatchDisplay").innerHTML = count;
+             setTimeout(stopwatchStart,1000);
+            }
+        </script>
+    </body>
+</html>

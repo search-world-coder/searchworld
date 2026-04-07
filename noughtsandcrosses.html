@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Noughts and Crosses</title>
+        <style>
+            body{
+                background-color: skyblue; /*challenge to change background color*/
+                color:black;
+            }
+            .row div{
+                width:70px; /* width and height of boxes changing Challenge*/
+                height:70px;
+                float:left;
+                text-align:center;
+                border:5px solid black;
+                background-color:lightskyblue;/*challenge to change background color of boxes*/
+                text-align: center; /*challenge to keep these at center*/
+            }
+            .row{
+                clear:both;
+            }
+            .imagesA{
+                visibility: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Noughts and Crosses</h1>
+        <div class="row">
+            <div onclick="place(this);" id="0_0"></div> 
+            <div onclick="place(this);" id="1_0"></div>
+            <div onclick="place(this);" id="2_0"></div>
+        </div>
+        <div class="row">
+            <div onclick="place(this);" id="0_1"></div>
+            <div onclick="place(this);" id="1_1"></div>
+            <div onclick="place(this);" id="2_1"></div>
+        </div>
+        <div class="row">
+            <div onclick="place(this);" id="0_2"></div>
+            <div onclick="place(this);" id="1_2"></div>
+            <div onclick="place(this);" id="2_2"></div>
+        </div>
+        <script>
+            var Pturn = "O"; //if statements using ternerary operator; variable Pturn; functions; || used;return and function call; won used
+            var won= false;
+            function place(box) {
+                    if(box.innerText !="" || won)  return;
+                    box.innerText = Pturn;
+                    Pturn == "O" ? Pturn = "X" : Pturn = "O";
+                    checkGameBoard();
+                }
+           function checkGameBoard(){ // function to input and process the values; for loop; innerText used; functions and arguments;
+            for(var i=0; i<3; i++){
+            checkWinner(document.getElementById(i+"_0").innerText,
+                        document.getElementById(i+"_1").innerText,
+                        document.getElementById(i+"_2").innerText);
+                
+           checkWinner(document.getElementById("0_" + i).innerText,
+                       document.getElementById("1_"+i).innerText,
+                       document.getElementById("2_"+i).innerText);
+            }
+            checkWinner(document.getElementById("0_0").innerText,
+                        document.getElementById("1_1").innerText,
+                        document.getElementById("2_2").innerText);
+
+            checkWinner(document.getElementById("2_0").innerText,
+                        document.getElementById("1_1").innerText,
+                        document.getElementById("0_2").innerText);
+           }
+           function checkWinner(first,second,third){ // to check winner; && used;
+            if(first!="" && first==second && first==third){
+                alert("Winner! You have won!");
+                won= true;
+                document.body.style.backgroundColor = "yellow";/*challenge to change background color when won*/
+            }
+           }
+        </script>
+    </body>
+</html>
