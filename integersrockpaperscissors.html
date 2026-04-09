@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Integers Rock Paper Scissors</title>
+        <style>
+            body {
+                background-color: burlywood;
+                font-family: Arial, sans-serif;
+                color:darkbrown;
+            }
+            h1 {
+                color: darkred;
+            }
+            #game {
+                float: left;
+                clear: both;
+                float:down relative to each other;
+            }
+            #rock , #paper, #scissors, #clearList {
+                color:blue;
+                background-color: skyblue;
+            }
+            #scoreList {
+                float: right;
+                background-color: lightyellow;
+                font-size:40px;
+                color:black;
+                border:5px dotted red;
+                float:down relative to each other;
+            }
+        </style>
+        <script>
+            var playerScore = 0;
+            var computerScore = 0;
+            // 0 = rock, 1 = paper, 2 = scissors need to remember!
+            function playRock() {
+                var computerChoice = Math.floor(Math.random() * 3);
+                var playerChoice = 0;
+                if (computerChoice === 0) {
+                    document.getElementById("result").innerHTML = "It's a tie!";
+                } else if (computerChoice === 1) {
+                    computerScore++;
+                    document.getElementById("result").innerHTML = "Computer wins! Paper beats rock.";
+                } else {
+                    playerScore++;
+                    document.getElementById("result").innerHTML = "You win! Rock beats scissors.";
+                }
+                updateScore();
+            }
+            function playPaper() {
+                var computerChoice = Math.floor(Math.random() * 3);
+                var playerChoice = 1;
+                if (computerChoice === 0) {
+                    playerScore++;
+                    document.getElementById("result").innerHTML = "You win! Paper beats rock.";
+                } else if (computerChoice === 1) {
+                    document.getElementById("result").innerHTML = "It's a tie!";
+                } else {
+                    computerScore++;
+                    document.getElementById("result").innerHTML = "Computer wins! Scissors beats paper.";
+                }
+                updateScore();
+            }
+            function playScissors() {
+                var computerChoice = Math.floor(Math.random() * 3);
+                var playerChoice = 2;
+                if (computerChoice === 0) {
+                    computerScore++;
+                    document.getElementById("result").innerHTML = "Computer wins! Rock beats scissors.";
+                } else if (computerChoice === 1) {
+                    playerScore++;
+                    document.getElementById("result").innerHTML = "You win! Scissors beats paper.";
+                } else {
+                    document.getElementById("result").innerHTML = "It's a tie!";
+                }
+                updateScore();
+            }
+            function updateScore() {
+                document.getElementById("playerScore").innerHTML = "Player Score: " + playerScore;
+                document.getElementById("computerScore").innerHTML = "Computer Score: " + computerScore;
+            }
+            function clearScore() {
+                playerScore = 0;
+                computerScore = 0;
+                document.getElementById("playerScore").innerHTML = "Player Score: " + playerScore;
+                document.getElementById("computerScore").innerHTML = "Computer Score: " + computerScore;
+                document.getElementById("result").innerHTML = "";
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Integers Rock Paper Scissors</h1>
+        <p>In this game, you will play rock paper scissors against the computer. The rules are as follows:</p>
+        <ul>
+            <li>Rock beats scissors</li>
+            <li>Scissors beats paper</li>
+            <li>Paper beats rock</li>
+        </ul>
+        <p>To play, simply click on your choice (rock, paper, or scissors) and the computer will randomly select its choice. The winner will be determined based on the rules above.</p>
+        <p>Good luck and have fun playing!</p>
+        <div id="game">
+            <button onclick="playRock();" id="rock">Rock</button>
+            <button onclick="playPaper();" id="paper">Paper</button>
+            <button onclick="playScissors();" id="scissors">Scissors</button>
+            <button id="clearList" onclick="clearScore();">Clear Score</button>
+        </div>
+        <div id="scoreList">
+            <div id="playerScore"></div>
+            <div id="computerScore"></div>
+            <div id="result"></div>
+        </div>
+    </body>
+</html>

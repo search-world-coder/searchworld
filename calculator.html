@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <style>
+            body{
+                background-color:skyblue;
+                color:black;
+            }
+            input[type="text"] {
+                margin:15px;
+                background-color:paleturquoise;
+                color:black;
+                width:400px;
+                height:40px;
+            }
+            input[type="button"] {
+                background-color:paleturquoise;
+                color:black;
+                border-radius: 50%;
+                height:75px;
+                width:75px;
+                font-size:25pt;
+            }
+            .row div{
+                width: 70px;
+                height: 70px;
+                float: left;
+                text-align: center;
+                line-height: 70px;
+                padding:20px;
+            }
+            .row{
+                clear:both;
+            }
+        </style>
+        <script>
+            function displayPlus() {
+                    document.getElementById("inputValue").value += "+";
+                }
+                function displayMinus() {
+                    document.getElementById("inputValue").value += "-";
+                } 
+                function displayMultiply() {
+                    document.getElementById("inputValue").value += "*";
+                }
+                function displayDivide() {
+                    document.getElementById("inputValue").value += "/";
+                }
+                function display1() {
+                    document.getElementById("inputValue").value += "1";
+                }
+                function display2() {
+                    document.getElementById("inputValue").value += "2";
+                }
+                function display3() {
+                    document.getElementById("inputValue").value += "3";
+                }
+                function display4() {
+                    document.getElementById("inputValue").value += "4";
+                }
+                function display5() {
+                    document.getElementById("inputValue").value += "5";
+                }
+                function display6() {
+                    document.getElementById("inputValue").value += "6";
+                }
+                function display7() {
+                    document.getElementById("inputValue").value += "7";
+                }
+                function display8() {
+                    document.getElementById("inputValue").value += "8";
+                }
+                function display9() {
+                    document.getElementById("inputValue").value += "9";
+                }
+                function display0() {
+                    document.getElementById("inputValue").value += "0";
+                }
+                function displayDecimal() {
+                    document.getElementById("inputValue").value += ".";
+                }
+                function displayNegative() {
+                    document.getElementById("inputValue").value += "-";
+                }
+                function displayOpenBracket() {
+                    document.getElementById("inputValue").value += "(";
+                }
+                function displayCloseBracket() {
+                    document.getElementById("inputValue").value += ")";
+                }
+                function displaySquareRoot() {
+                    document.getElementById("inputValue").value += "Math.sqrt(";
+                }
+                function displayCubeRoot() {
+                    document.getElementById("inputValue").value += "Math.cbrt(";
+                }
+                function displaySquare() {
+                    document.getElementById("inputValue").value += "**2";
+                }
+                function displayCube() {
+                    document.getElementById("inputValue").value += "**3";
+                } 
+            function calculate() {
+               
+                var input = document.getElementById("inputValue").value;
+                var result = eval(input);
+                document.getElementById("inputValue").value = "";
+                document.getElementById("inputValue").value = "= " + result;         
+            }
+            function clearResultSpace() {
+                    document.getElementById("inputValue").value = "";
+            } 
+
+        </script>
+    </head>
+    <body>
+        <input type="text" id="inputValue"/>
+        <div>
+        <div class="row">
+            <div><input type="button" value="(" onclick="displayOpenBracket();"/></div>
+            <div><input type="button" value=")" onclick="displayCloseBracket();"/></div>
+            <div><input type="button" value="." onclick="displayDecimal();";"/></div>
+            <div><input type="button" value="-" onclick="displayNegative();"/></div>
+        </div>
+        <div class="row">
+            <div><input type="button" value="√" onclick="displaySquareRoot();"/></div>
+            <div><input type="button" value="∛" onclick="displayCubeRoot();"/></div>
+            <div><input type="button" value="x²" onclick="displaySquare();"/></div>
+            <div><input type="button" value="x³" onclick="displayCube();"/></div>
+        </div>
+        <div class="row">
+            <div><input type="button" value="AC" onclick="clearResultSpace();"/></div>
+            <div><input type="button" value="=" onclick="calculate();"/></div>
+            <div><input type="button" value="/" onclick="displayDivide();"/></div>
+            <div><input type="button" value="+" onclick="displayPlus();"/></div>
+        </div>
+        <div class="row">
+            <div><input type="button" value="1" onclick="display1();"/></div>
+            <div><input type="button" value="2" onclick="display2();"/></div>
+            <div><input type="button" value="3" onclick="display3();"/></div>
+            <div><input type="button" value="-" onclick="displayMinus();"/></div>
+        </div>
+        <div class="row">
+            <div><input type="button" value="4" onclick="display4();"/></div>
+            <div><input type="button" value="5" onclick="display5();"/></div>
+            <div><input type="button" value="6" onclick="display6();"/></div>
+            <div><input type="button" value="*" onclick="displayMultiply();"/></div>
+        </div>
+         <div class="row">
+            <div><input type="button" value="7" onclick="display7();"/></div>
+            <div><input type="button" value="8" onclick="display8();"/></div>
+            <div><input type="button" value="9" onclick="display9();"/></div>
+            <div><input type="button" value="0" onclick="display0();"/></div>
+         </div>
+        </div>
+    </body>
+</html>
