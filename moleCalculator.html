@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mole Calculator</title>
+        <style>
+            body{
+                background-color: lightcoral;
+                color:darkred;
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                padding: 115px;
+            }
+            h1{
+                font-size:30pt;
+                color:black;
+            }
+            p{
+                font-size:20pt;
+            }
+            input[type="text"]{
+                background-color: bisque;
+                width:350px;
+                height:50px;
+                border-radius: 15%;
+            }
+            input[type="button"] {
+                background-color: bisque;
+                width:175px;
+                height:50px;
+                border-radius: 50%;
+            }
+        </style>
+        <script>
+            function calculateMoles() {
+                var mass = document.getElementById("substanceMass").value;
+                var relativeAtomicMass2 = document.getElementById("relativeAtomicMass").value;
+                var substance = document.getElementById("substanceName").value;
+                var noOfMoles = mass / relativeAtomicMass2;
+                document.getElementById("enterWindow").innerHTML = "Number of moles - " + noOfMoles;
+            }
+            function calculateParticles() {
+                var mass = document.getElementById("substanceMass").value;
+                var relativeAtomicMass2 = document.getElementById("relativeAtomicMass").value;
+                var substance = document.getElementById("substanceName").value;
+                var noOfMoles = mass / relativeAtomicMass2;
+                var noOfParticles = noOfMoles * 602214076000000000000000;
+                document.getElementById("enterWindow2").innerHTML = "Number of particles - " + noOfParticles;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Mole Calculator</h1>
+        <h2>The Science behind Moles</h2>
+        <p>The mole is a unit of measurement used in chemistry to express 
+            the amount of a substance. One mole of a substance contains 
+            exactly 6.022 x 10^23 particles (atoms, molecules, ions, etc.), which
+             is known as Avogadro's number.</p>
+        <p>Avogadro's number is a number which when multiplie
+             by atomic mass unit (amu) gives the Relative Atomic
+            Mass or the Relative Formula Mass of a substance. The mole is used to convert between the mass of a substance and the number of particles it contains, making it easier to work with chemical reactions and calculations.</p>
+        <p>For example, if you have 1 mole of water (H2O), you 
+            have 6.022 x 10^23 water molecules, which is equivalent to 18 grams of water (the molar mass of water). The mole is a fundamental concept in chemistry and is essential for understanding chemical reactions, stoichiometry, and the behavior of gases.</p>
+        <p>In summary, the mole is a unit of measurement that allows
+             chemists to work with large quantities of particles in a manageable way, and Avogadro's number is the key to understanding the relationship 
+            between mass and the number of particles in a substance.</p>
+        <p>Now that we understand the concept of moles, let's dive into the calculations!</p>
+        <p>No of moles = Mass / Relative Atomic Mass</p>
+        <p>No of particles = No of moles x Avogadro's number</p>
+        <p>This is a simple mole calculator which, when you input the mass of a substance with its relative
+            atomic mass, it will calculate the number of moles of that substance and the number of particles too. Let's explore the
+            magic of moles!</p>
+        <input type="text" id="substanceMass" placeholder="Mass"/>
+        <input type= "text" id="relativeAtomicMass" placeholder="Relative atomic mass"/>
+        <br/>
+        <input type="button" value="Calculate the no. of moles" onclick="calculateMoles();"/>
+        <input type="button" value="Find the no. of atoms" onclick="calculateParticles();"/>
+        <div id="enterWindow">Number of moles - </div>
+        <div id="enterWindow2">Number of particles - </div>
+    </body>
+</html>
