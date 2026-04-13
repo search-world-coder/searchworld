@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To-do List App</title>
+        <style>
+            body{
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                background-color:deepskyblue;
+                color: darkblue;
+            }
+            h1{
+                font-size: 40px;
+            }
+            input[type="text"]{
+                width: 200px;
+                height: 30px;
+                color: darkblue;
+                background-color: lightskyblue;
+            }
+            input[type="button"]{
+                background-color: lightskyblue;
+                color: darkblue;
+            }
+        </style>
+        <script>
+            function addTask() {
+            var newDiv = document.createElement("div");
+            newDiv.innerHTML = document.getElementById("space").value;
+            newDiv.onclick = removeDiv;
+            document.getElementById("list").appendChild(newDiv);
+            saveList();
+            }
+            function removeDiv() {
+                document.getElementById("list").removeChild(this);
+                saveList();
+            }
+            function saveList() {
+                localStorage.storageSpace = document.getElementById("list").innerHTML;
+            }
+            function loadList(){
+                document.getElementById("list").innerHTML = localStorage.storageSpace;
+                for(var i = 0; i < list.children.length; i++){
+                    document.getElementById("list").children[i].onclick = removeDiv;
+                }
+            }        
+        </script>
+    </head>
+    <body>
+        <h1>To-Do List App</h1>
+        <h2>Have difficulties in managing your tasks? 
+            Our To-Do List App is here to help you 
+            stay organized and on top of your daily responsibilities!
+        </h2>
+        <input type="text" id="space" placeholder="Type here to add task" />
+        <input type="button" value="Add Task" onclick="addTask();" />
+        <div id="list" ></div>
+        <script>
+            if(localStorage.storageSpace){
+                loadList();
+            }
+        </script>
+    </body>
+</html>
