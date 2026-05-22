@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Weather App</title>
+    <!---Image to be attached-->
+    <link rel="stylesheet" href="style.css"/>
+ </head>
+ <body>
+<main>
+    <section>
+        <header>
+            <ul>
+                <li>Sorry, a fault has occurred in the weather data retrieval system.
+                    Kindly wait for a few days while we work on fixing the issue.
+                    We apologize for the inconvenience caused. For now,
+                    you can check the weather conditions for New Delhi, Patna
+                    and Hyderabad below:</li>
+                </li>
+                <li>How to Use:</li>
+                <li>Input your location in the search bar</li>
+                <li>Click the search toggle</li>
+                <li>View the current weather conditions for your location</li>
+            </ul>
+        </header>
+    </section>
+    <section>
+        <input type="text" id="cityInput" placeholder="Location"/>
+        <input type="button" id="searchBtn" value="Search"/>
+    </section>
+    <section>
+        <div id="weatherResults">
+            <div id="cityName"></div>
+            <div id="temperature"></div>
+            <div id="humidity"></div>
+            <div id="precipitation"></div>
+            <div id="wind-speed"></div>
+            <div id="wind-direction"></div>
+            <div id="description"></div>
+        </div>
+    </section>
+    <section>
+        Current Conditions (Hyderabad, India)<br/>
+       ☁️<br/>
+Partly cloudy<br/>
+35°C<br/>
+Feels like 36°C<br/>
+Humidity 30%<br/>
+Dew Point 15°C<br/>
+Wind 5 km/h W<br/>
+Gusts 17 km/h<br/>
+Air Quality 98 (Moderate)<br/>  
+UV Index 0 (Low)
+    </section>
+</main>
+ <script src="script.js"></script>
+</body>
+</html>

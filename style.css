@@ -1,0 +1,23 @@
+header {
+    background-color:transparent;
+    font-family:cursive;
+    color: #ffffff;
+    border-radius: 5%;
+}
+
+body{
+    background-image: url(https://bit.ly/4bcK1Hc);
+    font-family: fantasy;
+    background-size: cover;
+    color:#ffffff;
+}
+
+input[type="button"]{
+    background-color: transparent;
+    color:white;
+}
+
+input[type="text"]{
+    background-color: transparent;
+    color:white;
+}
