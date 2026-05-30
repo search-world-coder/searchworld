@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quiz</title>
+        <style>
+            body {
+                background-color: aliceblue;
+            }
+            .introduction {
+                background-color: lightsteelblue;
+                color:black;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size:10pt;
+                width: 100%;
+                border-radius: 5px;
+                padding: 20px;
+                height: auto;
+                margin: 20px auto;
+            }
+            .quizCentre {
+                background-color: lightsteelblue;
+                color:black;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size:10pt;
+                width: 100%;
+                border-radius: 5px;
+                height: auto;
+                padding: 20px;
+                margin: 20px auto;
+            }
+            input[type="text"] {
+                background-color: skyblue;
+                border: 1px solid black;
+                width: 50%;
+                height: 30px;
+                text-align: center;
+                padding: 5px;
+                margin: 10px 0;
+                color:aliceblue;
+                font-size:large;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                border-radius: 5px;
+            }
+            input[type="submit"] {
+                background-color: steelblue;
+                border: 1px solid black;
+                width: 20%;
+                height: 30px;
+                text-align: center;
+                padding: 5px;
+                margin: 10px 0;
+                color:aliceblue;
+                font-size:large;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                border-radius: 5px;
+            }
+        </style>
+        <script>
+            function checkAnswer1() {
+                var answer1 = document.getElementById("question1").value;
+                if(answer1.toLowerCase() === "1") {
+                    document.getElementById("answerspace1").value = "It is correct!";
+                }
+                else {
+                    document.getElementById("answerspace1").value = "It is incorrect!";
+                }
+            }
+            function checkAnswer2() {
+                var answer2 = document.getElementById("question2").value;
+                if(answer2.toLowerCase() === "2") {
+                    document.getElementById("answerspace2").value = "It is correct!";
+                }
+                else {
+                    document.getElementById("answerspace2").value = "It is incorrect!";
+                }
+            }
+            function checkAnswer3() {
+                var answer3 = document.getElementById("question3").value;
+                if(answer3.toLowerCase() === "2") {
+                    document.getElementById("answerspace3").value = "It is correct!";
+                }
+                else {
+                    document.getElementById("answerspace3").value = "It is incorrect!";
+                }
+            }
+            function checkAnswer4() {
+                var answer4 = document.getElementById("question4").value;
+                if(answer4.toLowerCase() === "2") {
+                    document.getElementById("answerspace4").value = "It is correct!";
+                }
+                else {
+                    document.getElementById("answerspace4").value = "It is incorrect!";
+                }
+            }
+            function checkAnswer5() {
+                var answer5 = document.getElementById("question5").value;
+                if(answer5.toLowerCase() === "1, 2, 3") {
+                    document.getElementById("answerspace5").value = "It is correct!";
+                }
+                else {
+                    document.getElementById("answerspace5").value = "It is incorrect!";
+                }
+            }
+            function checkAnswer6() {
+                var answer6 = document.getElementById("question6").value;
+                if(answer6.toLowerCase() === "1") {
+                    document.getElementById("answerspace6").value = "It is correct!";
+                }
+                else {
+                    document.getElementById("answerspace6").value = "It is incorrect!";
+                }
+            }
+            function checkAnswer7() {
+                var answer7 = document.getElementById("question7").value;
+                if(answer7.toLowerCase() === "3") {
+                    document.getElementById("answerspace7").value = "It is correct!";
+                }
+                else {
+                    document.getElementById("answerspace7").value = "It is incorrect!";
+                }
+            }
+            function checkAnswer8() {
+                var answer8 = document.getElementById("question8").value;
+                if(answer8.toLowerCase() === "1") {
+                    document.getElementById("answerspace8").value = "It is correct!";
+                }
+                else {
+                    document.getElementById("answerspace8").value = "It is incorrect!";
+                }
+            }
+            function checkAnswer9() {
+                var answer9 = document.getElementById("question9").value;
+                if(answer9.toLowerCase() === "2") {
+                    document.getElementById("answerspace9").value = "It is correct!";
+                }
+                else {
+                    document.getElementById("answerspace9").value = "It is incorrect!";
+                }
+            }
+            function checkAnswer10() {
+                var answer10 = document.getElementById("question10").value;
+                if(answer10.toLowerCase() === "1") {
+                    document.getElementById("answerspace10").value = "It is correct!";
+                }
+                else {
+                    document.getElementById("answerspace10").value = "It is incorrect!";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <section>
+            <div class="introduction">
+                <h1>Welcome to Quiz Centre !</h1>
+                <h2>How to start: </h2>
+                <h3>There will be 10 Questions.</h3>
+                <h3>You have to select the correct Answer from 4 Options.</h3>
+                <h3>We are employing OMR checking system. If you think the 2nd one is corrct,
+                    for example, you have to type "2" in the answer box and click on submit button. Then 
+                    you will get the result in the answer space.</h3>
+            </div>
+            <main>
+                <div class="quizCentre">
+                    1. What is the primary pigment responsible for trapping light energy during photosynthesis?
+                    <p>Options: Chlorophyll, Hemoglobin, Melanin, Carotenoids</p>
+                    <hr/>
+                    2. In which part of the cell does cellular respiration to produce ATP primarily occur?
+                    <p>Options: Nucleus, Mitochondria, Ribosomes, Endoplasmic Reticulum</p>
+                    <hr/>
+                    3. What is the process of random movement of molecules from an area of higher concentration to an area of lower concentration called?
+                    <p>Options: Osmosis, Diffusion, Active Transport, Facilitated Diffusion</p>
+                    <hr/>
+                    4. What type of chemical reaction involves a single reactant breaking down into two or more simpler products?
+                    <p>Options: Synthesis, Decomposition, Replacement, Combustion</p>
+                    <hr/>
+                    5. What does the pH scale measure, and which number represents a neutral solution?
+                    <p>Options: Acidity, Alkalinity, 7</p>
+                    <hr/>
+                    6. Which element is represented by the chemical symbol Fe?
+                    <p>Options: Iron, Fluorine, Silicon, Sodium</p>
+                    <hr/>
+                    7. What is the SI unit of electric current?
+                    <p>Options: Volt, Ohm, Ampere, Watt</p>
+                    <hr/>
+                    8. State the Law of Reflection.
+                    <p>Options: The angle of incidence equals the angle of reflection, The angle of incidence is greater than the angle of reflection, The angle of incidence is less than the angle of reflection, The angle of incidence is independent of the angle of reflection</p>
+                    <hr/>
+                    9. What type of lens is typically used to correct myopia (nearsightedness)?
+                    <p>Options: Convex lens, Concave lens, Biconvex lens, Biconcave lens</p>
+                    <hr/>
+                    10. What is the name of the process by which a solid changes directly into a gas without passing through the liquid phase?
+                    <p>Options: Sublimation, Evaporation, Condensation, Freezing</p>
+                </div>
+                <div class="quizCentre">
+                    <h3>Answer for Question 1:</h3>
+                    <input type="text" placeholder="Type your answer here..." id="question1"/>
+                    <input type="submit" value="Submit Answer" id="submit" onclick="checkAnswer1()"/>
+                    <h3>Answer for Question 2:</h3>
+                    <input type="text" placeholder="Type your answer here..." id="question2"/>
+                    <input type="submit" value="Submit Answer" id="submit" onclick="checkAnswer2()"/>
+                    <h3>Answer for Question 3:</h3>
+                    <input type="text" placeholder="Type your answer here..." id="question3"/>
+                    <input type="submit" value="Submit Answer" id="submit" onclick="checkAnswer3()"/>
+                    <h3>Answer for Question 4:</h3>
+                    <input type="text" placeholder="Type your answer here..." id="question4"/>
+                    <input type="submit" value="Submit Answer" id="submit" onclick="checkAnswer4()"/>
+                    <h3>Answer for Question 5:</h3>
+                    <input type="text" placeholder="Type your answer here..." id="question5"/>
+                    <input type="submit" value="Submit Answer" id="submit" onclick="checkAnswer5()"/>
+                    <h3>Answer for Question 6:</h3>
+                    <input type="text" placeholder="Type your answer here..." id="question6"/>
+                    <input type="submit" value="Submit Answer" id="submit" onclick="checkAnswer6()"/>
+                    <h3>Answer for Question 7:</h3>
+                    <input type="text" placeholder="Type your answer here..." id="question7"/>
+                    <input type="submit" value="Submit Answer" id="submit" onclick="checkAnswer7()"/>
+                    <h3>Answer for Question 8:</h3>
+                    <input type="text" placeholder="Type your answer here..." id="question8"/>
+                    <input type="submit" value="Submit Answer" id="submit" onclick="checkAnswer8()"/>
+                    <h3>Answer for Question 9:</h3>
+                    <input type="text" placeholder="Type your answer here..." id="question9"/>
+                    <input type="submit" value="Submit Answer" id="submit" onclick="checkAnswer9()"/>
+                    <h3>Answer for Question 10:</h3>
+                    <input type="text" placeholder="Type your answer here..." id="question10"/>
+                    <input type="submit" value="Submit Answer" id="submit" onclick="checkAnswer10()"/>
+                </div>
+                <div class="quizCentre">
+                    <h3>Result for Question 1:</h3>
+                    <input type="text" id="answerspace1" readonly/>
+                    <h3>Result for Question 2:</h3>
+                    <input type="text" id="answerspace2" readonly/>
+                    <h3>Result for Question 3:</h3>
+                    <input type="text" id="answerspace3" readonly/>
+                    <h3>Result for Question 4:</h3>
+                    <input type="text" id="answerspace4" readonly/>
+                    <h3>Result for Question 5:</h3>
+                    <input type="text" id="answerspace5" readonly/>
+                    <h3>Result for Question 6:</h3>
+                    <input type="text" id="answerspace6" readonly/>
+                    <h3>Result for Question 7:</h3>
+                    <input type="text" id="answerspace7" readonly/>
+                    <h3>Result for Question 8:</h3>
+                    <input type="text" id="answerspace8" readonly/>
+                    <h3>Result for Question 9:</h3>
+                    <input type="text" id="answerspace9" readonly/>
+                    <h3>Result for Question 10:</h3>
+                    <input type="text" id="answerspace10" readonly/>
+                </div>
+            </main>
+        </section>
+    </body>
+</html>
