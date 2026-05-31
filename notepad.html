@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Notes</title>
+        <style>
+            textarea {
+                color: black;
+                background-color:burlywood;
+                float: center;
+                text-align: left;
+                border-radius: 10px;
+                border: 2px solid brown;
+                padding: 10px;
+            }
+            body {
+                background-color: wheat;
+                text-align: center;
+                color: black;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            input[type="button"] {
+                background-color: burlywood;
+                color: black;
+                border: 2px solid brown;
+                border-radius: 5px;
+                padding: 10px 20px;
+                margin: 10px;
+                cursor: pointer;
+            }  
+            </style>
+        <script>
+            function saveNote() {
+                const noteContent = document.getElementById("noteContent").value;
+                localStorage.itemStorageSpace = noteContent;
+            }
+            function loadNote() {
+                noteContent = localStorage.itemStorageSpace;
+                document.getElementById("noteContent").value = noteContent;
+            }
+            function clearNote() {
+                document.getElementById("noteContent").value = "";
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Notes</h1>
+        <textarea id="noteContent" rows="20" cols="60"></textarea>
+        <input type="button" value="Save Note" onclick="saveNote();"/>
+        <input type="button" value="Load Note" onclick="loadNote();"/>
+        <input type="button" value="Clear Note" onclick="clearNote();"/>
+        <script>
+            if(localStorage.itemStorageSpace) {
+                loadNote();
+            }
+        </script>
+    </body>
+</html>

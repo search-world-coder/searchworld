@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Notes</title>
+        <style>
+            header {
+                background-color: burlywood;
+                color: black;
+                padding: 10px;
+                border-radius: 10px;
+                text-align: center;
+            }
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: wheat;
+                color: black;
+                padding: 20px;
+            }
+            input[type="button"] {
+                background-color: burlywood;
+                color: black;
+                border: 2px solid brown;
+                border-radius: 5px;
+                padding: 10px 20px;
+                margin: 10px;
+                cursor: pointer;
+                float: right;
+            }  
+        </style>
+        <script>
+            function makeNote() {
+                window.open("notepad.html", "_blank", "width=400,height=400");
+                var newFrame = document.createElement("iframe");
+                newFrame.src = "notepad.html";
+                newFrame.width = "200px";
+                newFrame.height = "300px";
+                newFrame.style.borderRadius = "10px";
+                newFrame.frameBorder = "0";
+                document.getElementById("noteContent").appendChild(newFrame);
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Notes</h1>
+        </header>
+        <input type="button" value="Start a Note" onclick="makeNote();"/>
+        <input type="button" value="Save Notes" onclick="saveNote();"/>
+        <input type="button" value="Load Notes" onclick="loadNote();"/>
+        <div id="noteContent"></div>
+    </body>
+</html>
+        
