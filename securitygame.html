@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Security Game</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color:whitesmoke;
+            }
+            #board{
+                background: url(https://getcodingkids.com/wp-content/uploads/2016/05/GameBackground.jpg);
+                background-size: cover;
+                height: 350px;
+                width: 650px;
+            }
+            .character{
+                background: url(https://getcodingkids.com/wp-content/uploads/2016/05/Guest.jpg);
+                background-size: cover;
+                border: 2px solid black;
+                width:120px;
+                height:120px;
+                float: left;
+                margin: 10px;
+                display: none;
+            }
+            .hidden {
+                display: none;
+            }
+            .visible {
+                display: block;
+            }
+            .thief {
+                background: url(https://getcodingkids.com/wp-content/uploads/2016/05/Thief.jpg);
+                background-size:cover;
+            }
+            button {
+                background-color: lightskyblue;
+                color: darkblue;
+                border: 2px solid black;
+                width:100px;
+                height: 50px;
+                margin: 10px;
+                font-family: cursive;
+            }
+        </style>
+            <script>
+        var gameScore = 0;
+        var loop=0;
+        var peopleVisible = false;
+        function gameLoop(){
+            peopleVisible = !peopleVisible;
+             loop++;
+                createCharacters();
+            if (loop < 12){
+                setTimeout(gameLoop, peopleVisible ? 1000 : 3000 );
+            }
+            else{
+                alert("Game Over! Your score is: " + gameScore);
+            }
+        }
+        function createCharacters() {
+            var board = document.getElementById("board");
+            var classToSet = "";
+            if (peopleVisible) {
+                classToSet = "character visible";
+            }
+            else {
+                classToSet = "character hidden";
+            }
+            for(var index= 0; index < 6; index++) {
+                board.children[index].innerHTML = "";
+                board.children[index].className = classToSet;
+                board.children[index].onclick = function() {
+                    gameScore += -2;
+                }
+            }
+            var randomNumber = Math.floor(Math.random() * 6) + 1;
+            board.children[randomNumber-1].innerHTML = "";
+            board.children[randomNumber-1].onclick = function() {
+                gameScore += 1;
+            }
+            board.children[randomNumber-1].className = classToSet + " thief";
+        }
+    </script>
+    </head>
+            <body>
+                <button onclick="gameLoop()">Start Game</button>
+                <div id="board">
+                    <div class="character">1</div>
+                    <div class="character">2</div>
+                    <div class="character">3</div>
+                    <div class="character">4</div>
+                    <div class="character">5</div>
+                    <div class="character">6</div>
+                </div>
+    </body>
+</html>
