@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Snake</title>
+    </head>
+    <body>
+        <canvas id="canvas" width="1024" height="1024"></canvas>
+        <script>
+            var game = {
+                board: [
+                    "###############",
+                    "#             #",
+                    "#             #",
+                    "#             #",
+                    "#    ####     #",
+                    "#    ####     #",
+                    "#             #",
+                    "#             #",
+                    "#             #",
+                    "###############"
+                ]
+            };
+            var snake = {
+                parts: [
+                    {x: 4, y:2},
+                    {x: 3, y:2},
+                    {x: 2, y:2}
+                ],
+                facing: "E"
+            };
+            var graphics = {
+                canvas: document.getElementById("canvas"),
+                squareSize: 30,
+                drawBoard: function(ctx) {
+                    var yOffset = 0;
+                    game.board.forEach(function lineEach(line) {
+                        line = line.split('');
+                        var xOffset = 0;
+                        line.forEach(function characterEach(character) {
+                            if (character === "#") {
+                                ctx.fillStyle = "black";
+                                ctx.fillRect(xOffset, yOffset, graphics.squareSize, graphics.squareSize);
+                            }
+                            xOffset += graphics.squareSize;
+                        });
+                        yOffset += graphics.squareSize;
+                    });
+                },
+                drawSnake: function(ctx) {
+                    snake.parts.forEach(function eachpart(part)  {
+                        var independent = part.y * graphics.squareSize;
+                        var dependent = part.x * graphics.squareSize;
+                        ctx.fillStyle = "green";
+                        ctx.fillRect(dependent, independent, graphics.squareSize, graphics.squareSize);
+                    });
+                },
+            drawGame: function() {
+              var ctx = graphics.canvas.getContext("2d");
+              graphics.drawBoard(ctx);
+              graphics.drawSnake(ctx);
+            }
+        };
+        graphics.drawGame();
+        </script>
+    </body>
+</html>
