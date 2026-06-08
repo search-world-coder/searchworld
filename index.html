@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search World</title>
+        <script>
+            function search(){
+                var searchInput = document.getElementById("searchInput2").value;
+                if(searchInput == ""){
+                    alert("Please enter a search term.");
+                } else {
+                    window.open("https://www.google.com/search?q=" + searchInput);              
+                }
+            }
+        </script>
+        <style>
+            body{
+                background-color: lightgreen;
+                color:darkgreen;
+                font-family: cursive;
+                padding-bottom: 10px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+             input[type="text"] {
+                padding: 10px;
+                width: 50%;
+                background-color:palegreen;
+                border: 1px solid darkgreen;
+                color: darkgreen;
+                border-radius: 5px;
+                margin: 10px;
+            }
+            #searchButtons {
+                padding: 10px 20px;
+                background-color:palegreen;
+                color: darkgreen;
+                width:25%;
+                height:10%;
+                border: 1px solid darkgreen;
+                border-radius: 5px;
+                margin: 10px;
+            }
+            #heading{
+                font-size: 30px;
+                color: darkgreen;
+                background-color: lightgreen;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Search World</h1>
+        <h2>We are committed to providing the best search experience with free 
+            web apps.
+        </h2>
+        <h2 id="heading">Use over 10 web apps by clicking on the buttons below:</h2>
+        <input type="button" id="searchButtons"value="To-Do List App" onclick="window.open('https://search-world-coder.github.io/searchworld/listapp.html')"/>
+        <input type="button" id="searchButtons"value="Music App" onclick="window.open('https://search-world-coder.github.io/searchworld/music.html')"/>
+        <input type="button" id="searchButtons"value="Mole Calculator" onclick="window.open('https://search-world-coder.github.io/searchworld/moleCalculator.html')"/>
+        <input type="button" id="searchButtons"value="Rock Paper Scissors" onclick="window.open('https://search-world-coder.github.io/searchworld/integersrockpaperscissors.html')"/>
+        <input type="button" id="searchButtons"value="Stopwatch" onclick="window.open('https://search-world-coder.github.io/searchworld/stopwatch.html')"/>
+        <input type="button" id="searchButtons"value="Chat App" onclick="window.open('https://search-world-coder.github.io/searchworld/chat.html')"/>
+        <input type="button" id="searchButtons"value="Clock" onclick="window.open('https://search-world-coder.github.io/searchworld/clock.html')"/>
+        <input type="button" id="searchButtons"value="Calculator" onclick="window.open('https://search-world-coder.github.io/searchworld/calculator.html')"/>
+        <input type="button" id="searchButtons"value="Noughts and Crosses" onclick="window.open('https://search-world-coder.github.io/searchworld/noughtsandcrosses.html')"/>
+        <input type="button" id="searchButtons"value="Snake" onclick="window.open('https://search-world-coder.github.io/searchworld/snake.html')"/>
+        <input type="button" id="searchButtons"value="Notes" onclick="window.open('https://search-world-coder.github.io/searchworld/notes.html')"/>
+        <input type="button" id="searchButtons"value="Quiz" onclick="window.open('https://search-world-coder.github.io/searchworld/quiz.html')"/>
+        <h2 id="heading">Search below:</h2>
+        <input type="text" id="searchInput2" placeholder="Type your search here..."/>
+        <input type="button" id="searchButtons" value="Search" onclick="search()"/>
+    </body>
+</html>
