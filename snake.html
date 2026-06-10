@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Snake</title>
     </head>
     <body>
         <canvas id="canvas" width="1024" height="1024"></canvas>
         <script>
             var game = {
+                number: 0,
+                timer: null,
                 board: [
                     "###############",
                     "#             #",
@@ -19,7 +21,12 @@
                     "#             #",
                     "#             #",
                     "###############"
-                ]
+                ],
+                tick: function() {
+                    game.number++;
+                    game.timer = window.setTimeout("game.tick()", 500);
+                    graphics.drawGame();
+                }
             };
             var snake = {
                 parts: [
@@ -27,7 +34,9 @@
                     {x: 3, y:2},
                     {x: 2, y:2}
                 ],
-                facing: "E"
+                facing: "E",
+                moveSnake: function() {
+                }
             };
             var graphics = {
                 canvas: document.getElementById("canvas"),
@@ -49,10 +58,10 @@
                 },
                 drawSnake: function(ctx) {
                     snake.parts.forEach(function eachpart(part)  {
-                        var independent = part.y * graphics.squareSize;
-                        var dependent = part.x * graphics.squareSize;
+                        var snakeY = part.y * graphics.squareSize;
+                        var snakeX = part.x * graphics.squareSize;
                         ctx.fillStyle = "green";
-                        ctx.fillRect(dependent, independent, graphics.squareSize, graphics.squareSize);
+                        ctx.fillRect(snakeX, snakeY, graphics.squareSize, graphics.squareSize);
                     });
                 },
             drawGame: function() {
@@ -61,7 +70,12 @@
               graphics.drawSnake(ctx);
             }
         };
-        graphics.drawGame();
+        var gameControl = {
+            startGame: function() {
+                game.tick();
+            }
+        }
+        gameControl.startGame();
         </script>
     </body>
 </html>
