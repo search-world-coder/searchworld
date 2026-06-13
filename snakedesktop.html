@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Snake</title>
+    </head>
+    <body>
+        <canvas id="canvas" width="1024" height="1024"></canvas>
+        <script>
+            var game = {
+                score: 0,
+                number: 0,
+                timer: null,
+                board: [
+                    "###############",
+                    "#             #",
+                    "#             #",
+                    "#             #",
+                    "#    ####     #",
+                    "#    ####     #",
+                    "#             #",
+                    "#             #",
+                    "#             #",
+                    "###############"
+                ],
+                tick: function() {
+                    window.clearTimeout(game.timer);
+                    game.number++; 
+                    if(game.number % 10 === 0) {
+                        game.addRandomFruit();
+                    }
+                    var result = snake.moveSnake();
+                    if(result === "gameover") {
+                        alert("Game Over! Your score is " + game.score);
+                        return;
+                    }
+                    game.timer = window.setTimeout(game.tick, 500);
+                    graphics.drawGame();
+                },
+                addRandomFruit: function() {
+                    var y = Math.floor(Math.random() * game.board.length) + 0;
+                    var x = Math.floor(Math.random() * game.board[y].length) + 0;
+                    var randomLocation = {x: x, y: y};
+                    if(game.ifSpace(randomLocation) &&  !game.ifFruit(randomLocation)) {
+                        fruit.push(randomLocation);
+                    }
+                },
+                ifObstacle: function(location) {
+                    return game.board[location.y][location.x] === "#";
+                },
+                ifSpace: function(location) {
+                    return game.board[location.y][location.x] === " ";
+                },
+                ifFruit: function(location) {
+                    for(var i= 0; i  < fruit.length; i++) {
+                        if(location.x === fruit[i].x && location.y === fruit[i].y) {
+                            fruit.splice(i, 1);
+                            return true;
+                        }
+                    }
+                    return false;
+                },
+                ifSnake: function(location) {
+                    for(var i= 0; i  < snake.parts.length; i++) {
+                        if(location.x === snake.parts[i].x && location.y === snake.parts[i].y) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+            };
+            var fruit = [
+                {x: 1, y: 1}
+            ];
+            var snake = {
+                parts: [
+                    {x: 4, y:2},
+                    {x: 3, y:2},
+                    {x: 2, y:2}
+                ],
+                facing: "E",
+                nextLocation: function() {
+                    var snakeHead = snake.parts[0];
+                    var positionX = snakeHead.x;
+                    var positionY = snakeHead.y;
+                    positionX = snake.facing === "E" ? positionX + 1 : positionX;
+                    positionX = snake.facing === "W" ? positionX - 1 : positionX;
+                    positionY = snake.facing === "S" ? positionY + 1 : positionY;
+                    positionY = snake.facing === "N" ? positionY - 1 : positionY;
+                    return {x: positionX, y: positionY};
+                },
+                moveSnake: function() {
+                    var location = snake.nextLocation();
+                    if(game.ifObstacle(location) || game.ifSnake(location)) {
+                      return "gameover";
+                    }
+                    if(game.ifSpace(location)) {    
+                    snake.parts.unshift(location);
+                    snake.parts.pop();
+                    }
+                    if(game.ifFruit(location)) {
+                       snake.parts.unshift(location);
+                        game.score++;
+                    }
+                }
+            };
+            var graphics = {
+                canvas: document.getElementById("canvas"),
+                squareSize: 30,
+                drawBoard: function(ctx) {
+                    var yOffset = 0;
+                    game.board.forEach(function lineEach(line) {
+                        line = line.split('');
+                        var xOffset = 0;
+                        line.forEach(function characterEach(character) {
+                            if (character === "#") {
+                                ctx.fillStyle = "black";
+                                ctx.fillRect(xOffset, yOffset, graphics.squareSize, graphics.squareSize);
+                            }
+                            xOffset += graphics.squareSize;
+                        });
+                        yOffset += graphics.squareSize;
+                    });
+                },
+                drawItems: function(ctx,source, color) {
+                    source.forEach(function eachpart(part)  {
+                        var snakeY = part.y * graphics.squareSize;
+                        var snakeX = part.x * graphics.squareSize;
+                        ctx.fillStyle = color;
+                        ctx.fillRect(snakeX, snakeY, graphics.squareSize, graphics.squareSize);
+                    });
+                },
+            drawGame: function() {
+              var ctx = graphics.canvas.getContext("2d");
+              ctx.clearRect(0, 0, graphics.canvas.width, graphics.canvas.height);
+              graphics.drawBoard(ctx);
+              graphics.drawItems(ctx, fruit, "red");
+              graphics.drawItems(ctx, snake.parts, "green");
+            }
+        };
+        var gameControl = {
+            processInput: function(keyPressed) {
+                var key = keyPressed.key.toLowerCase();
+                var direction = snake.facing;
+                if(key == "w" && snake.facing != "S") direction = "N";
+                if(key == "s" && snake.facing != "N") direction = "S";
+                if(key == "a" && snake.facing != "E") direction = "W";
+                if(key == "d" && snake.facing != "W") direction = "E";
+                snake.facing = direction;
+                game.tick();
+            },
+            startGame: function() {
+                window.addEventListener("keypress", gameControl.processInput, false);
+                game.tick();
+            }
+        };
+        gameControl.startGame();
+        </script>
+    </body>
+</html>
